@@ -30,7 +30,7 @@ for key in response_dict.keys():
 	    pass
 
 dict2 = {}
-for k in sorted(dict1.keys()):
+for k in sorted(dict1.keys(), key=lambda item: item[1]):
     dict2[k] = dict1[k]
 
 
