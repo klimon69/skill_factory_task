@@ -31,7 +31,6 @@ for key in response_dict.keys():
 
 
 sorted_list = sorted(dict1.items(), key = lambda kv:(kv[1]))
-dict2 = dict(sorted_list)
 
 
 connection = pymysql.connect(host='localhost', #Указать свой адрес сервера
@@ -51,9 +50,9 @@ try:
         cursor.execute(sql)
         connection.commit()
 	
-        for key in dict2.keys():
+        for item in sorted_list:
             sql = "INSERT INTO `modules` (`module_id`, `module_name`, `upload_date`) VALUES (%s, %s, NOW())"
-            cursor.execute(sql, (key, dict2[key]))
+            cursor.execute(sql, (item[0], item[1]))
     connection.commit()
 finally:
     connection.close()
