@@ -29,9 +29,9 @@ for key in response_dict.keys():
     else:
 	    pass
 
-dict2 = {}
-for k in sorted(dict1.keys(), key=lambda item: item[1]):
-    dict2[k] = dict1[k]
+
+sorted_list = sorted(dict1.items(), key = lambda kv:(kv[1]))
+dict2 = dict(sorted_list)
 
 
 connection = pymysql.connect(host='localhost', #Указать свой адрес сервера
